@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<style>body { padding: 20px; background-color: white!important }</style>
+<div id="demo"></div>
+
+<script type="text/stache" id="demo-html">
+  <can-import from="~/styles.less" />
+  <can-import from="~/index" />
+  <can-search-select {items}="items" {format}="@format" />
+</script>
+
+<script src="node_modules/steal/steal.js"
+        main="@empty">
+
+  import stache from 'can-stache'
+  import DefineMap from 'can-define/map/map'
+  //import reload from 'live-reload'
+
+  const vm = new DefineMap({
+    format (item) {
+      return item.companyName + ', ' + item.issuanceName + ', price: ' + item.price;
+    },
+    items: [{
+      companyName: 'Alphabet',
+      issuanceName: 'Preferred Series A',
+      price: '1,494'
+    }, {
+      companyName: 'Allianz SE',
+      issuanceName: 'Preferred Series B',
+      price: '5,194'
+    }, {
+      companyName: 'Anheuser-Busch',
+      issuanceName: 'Series 1',
+      price: '350'
+    }]
+  })
+
+  // Enable live-reload:
+  stache.async(document.getElementById('demo-html').innerHTML).then(template => {
+    let render = () => {
+    	const el = document.getElementById('demo')
+    	el.appendChild(template(vm))
+    }
+    render()
+    //reload(render)
+  });
+</script>
