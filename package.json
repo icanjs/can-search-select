@@ -1,0 +1,91 @@
+{
+  "name": "can-search-select",
+  "version": "0.0.0",
+  "description": "My plugin description",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/icanjs/can-search-select.git"
+  },
+  "author": {
+    "name": "Ilya Fadeev",
+    "email": "fadeev.ilya@gmail.com",
+    "url": ""
+  },
+  "scripts": {
+    "preversion": "npm test && npm run build",
+    "version": "git commit -am \"Update version number\" && git checkout -b release && git add -f dist/",
+    "postpublish": "git push --tags && git checkout master && git branch -D release && git push",
+    "testee": "testee test.html --browsers firefox",
+    "test": "npm run lint && npm run testee",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "release:patch": "npm version patch && npm publish",
+    "release:minor": "npm version minor && npm publish",
+    "release:major": "npm version major && npm publish",
+    "build": "node build.js",
+    "develop": "done-serve --static --develop --port 8080"
+  },
+  "main": "dist/cjs/index",
+  "browser": {
+    "transform": [
+      "cssify"
+    ]
+  },
+  "browserify": {
+    "transform": [
+      "cssify"
+    ]
+  },
+  "keywords": [
+    "canjs",
+    "component",
+    "donejs-plugin"
+  ],
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "steal": {
+    "main": "index",
+    "configDependencies": [
+      "live-reload"
+    ],
+    "npmIgnore": [
+      "testee",
+      "generator-donejs",
+      "donejs-cli",
+      "steal-tools"
+    ],
+    "plugins": [
+      "steal-less",
+      "steal-stache"
+    ],
+    "directories": {
+      "lib": "src"
+    }
+  },
+  "dependencies": {
+    "can-component": "^3.0.7",
+    "can-define": "^1.0.18",
+    "can-stache": "^3.0.24",
+    "can-view-autorender": "^3.0.4",
+    "cssify": "^1.0.3",
+    "standard": "^10.0.2",
+    "steal-less": "^1.2.0",
+    "steal-stache": "^3.0.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "done-serve": "^1.0.0",
+    "donejs-cli": "^1.0.0",
+    "generator-donejs": "^1.0.0",
+    "mocha": "^3.3.0",
+    "steal": "^1.5.1",
+    "steal-mocha": "^1.0.0",
+    "steal-tools": "^1.3.3",
+    "testee": "^0.4.1"
+  },
+  "license": "MIT"
+}

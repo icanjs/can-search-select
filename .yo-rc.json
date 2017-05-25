@@ -1,0 +1,9 @@
+{
+  "generator-donejs": {
+    "promptValues": {
+      "authorName": "Ilya Fadeev",
+      "authorEmail": "fadeev.ilya@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}
