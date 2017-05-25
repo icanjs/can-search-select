@@ -1,10 +1,10 @@
-import Component from 'can-component';
-import DefineMap from 'can-define/map/';
-import './styles.less';
-import view from './template.stache';
+import Component from 'can-component'
+import DefineMap from 'can-define/map/'
+import './styles.less'
+import view from './template.stache'
 
-const placeholderSearch = 'Enter Company Name';
-const placeholderSelect = 'Choose From the List';
+const placeholderSearch = 'Enter Company Name'
+const placeholderSelect = 'Choose From the List'
 
 export const ViewModel = DefineMap.extend({
   // Options:
@@ -16,7 +16,7 @@ export const ViewModel = DefineMap.extend({
     value: 'companyName'
   },
   format (item) {
-    return item[this.filterPropName];
+    return item[this.filterPropName]
   },
 
   // Props:
@@ -39,44 +39,44 @@ export const ViewModel = DefineMap.extend({
     get () {
       return this.filter
         ? this.items && this.items.filter(makeFilter(this.filter, this.filterPropName))
-        : this.items;
+        : this.items
     }
   },
   open () {
     if (!this.filter && this.isOpened) {
-      this.isOpened = false;
-      this.placeholder = placeholderSearch;
-      return;
+      this.isOpened = false
+      this.placeholder = placeholderSearch
+      return
     }
-    this.val = '';
-    this.filter = '';
-    this.isOpened = true;
-    this.placeholder = placeholderSelect;
+    this.val = ''
+    this.filter = ''
+    this.isOpened = true
+    this.placeholder = placeholderSelect
   },
   onKeyUp (val) {
-    this.val = val;
-    this.filter = val;
-    this.isOpened = true;
+    this.val = val
+    this.filter = val
+    this.isOpened = true
   },
   onFocus () {
-    this.placeholder = placeholderSearch;
+    this.placeholder = placeholderSearch
   },
   onEnter () {
-    if (this.itemsFiltered.length){
+    if (this.itemsFiltered.length) {
       this.select(this.itemsFiltered[0])
     }
   },
   select (item) {
-    this.selectedItem = item;
-    this.val = this.format(item);
-    this.isOpened = false;
+    this.selectedItem = item
+    this.val = this.format(item)
+    this.isOpened = false
   }
-});
+})
 
 function makeFilter (needle, propName) {
   return function (item) {
-    console.log(`- filter: ${needle}, ${propName} => ${item[propName]}`, item);
-    return item[propName].toLowerCase().search(needle.toLowerCase()) !== -1;
+    console.log(`- filter: ${needle}, ${propName} => ${item[propName]}`, item)
+    return item[propName].toLowerCase().search(needle.toLowerCase()) !== -1
   }
 }
 
@@ -84,4 +84,4 @@ export default Component.extend({
   tag: 'can-search-select',
   ViewModel,
   view
-});
+})
