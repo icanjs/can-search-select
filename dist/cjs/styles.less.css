@@ -1,0 +1,8 @@
+/*can-search-select@0.0.0#styles.less!steal-less@1.2.0#less*/
+can-search-select {
+  display: block;
+  position: relative;
+}
+can-search-select .dropdown-list {
+  position: absolute;
+}
