@@ -4,5 +4,25 @@ can-search-select {
 
   .dropdown-list {
     position: absolute;
+    z-index: 999;
+
+    max-height: 160px;
+    width: 100%;
+    padding-left: 0px;
+    overflow: auto;
+    
+    background-color: white;
+    border: 1px solid lightgray;
+    border-top: none;
+
+    li {
+      list-style-type: none;
+      padding: 3px 15px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lightblue;
+      }
+    }
   }
 }
