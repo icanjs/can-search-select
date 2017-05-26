@@ -7,12 +7,12 @@ export const ViewModel = DefineMap.extend({
   // Params and options:
   filterPropName: 'string',
   format (item) {
-    return this.filterPropName && item[this.filterPropName] || item;
+    return (this.filterPropName && item[this.filterPropName]) || item
   },
   placeholderSearch: {
     value: 'Enter to Search...'
   },
-  placeholderSelect:  {
+  placeholderSelect: {
     value: 'Choose From the List'
   },
   btnClass: {
@@ -44,7 +44,7 @@ export const ViewModel = DefineMap.extend({
   },
   placeholder: {
     get (val) {
-      return val || this.placeholderSearch;
+      return val || this.placeholderSearch
     }
   },
   open () {
@@ -81,8 +81,8 @@ export const ViewModel = DefineMap.extend({
 function makeFilter (needle, propName) {
   return function (item) {
     // console.log(`- filter: ${needle}, ${propName} => ${item[propName]}`, item)
-    const stack = propName ? item[propName] : item;
-    return stack.toLowerCase().search(needle.toLowerCase()) !== -1;
+    const stack = propName ? item[propName] : item
+    return stack.toLowerCase().search(needle.toLowerCase()) !== -1
   }
 }
 
