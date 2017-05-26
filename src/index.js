@@ -29,7 +29,13 @@ export const ViewModel = DefineMap.extend({
 
   // Internals:
   val: {
-    type: 'string'
+    type: 'string',
+    get (val) {
+      if (!val && this.selectedItem) {
+        return this.format(this.selectedItem)
+      }
+      return val
+    }
   },
   isOpened: 'boolean',
   searchString: {
