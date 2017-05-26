@@ -6,15 +6,15 @@
          {$value}="val" />
   <span class="input-group-btn">
     <button class="btn btn-default" type="button" ($click)="open()">
-      <span class="icon icon-chevron rotate-90"></span>
+      <span class="{{btnClass}}"></span>
     </button>
   </span>
 </div>
 
 {{#if isOpened}}
   <ul class="dropdown-list">
-    {{#each itemsFiltered}}
-      <li ($click)="select(.)">{{companyName}}, {{issuanceName}} {{price}}</li>
+    {{#each itemsFiltered as item}}
+      <li ($click)="select(item)">{{format(item)}}</li>
     {{else}}
       <li>No records found</li>
     {{/each}}

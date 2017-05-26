@@ -8,12 +8,15 @@ CanJS component for a dropdown select with a search
 
 To try out the demo open `demo.html` file in browser.
 
-## Usage
+## Example
 
 Your page template can look like this:
 ```html
 <can-import from="can-search-select" />
-<can-search-select {items}="items" {format}="@format" {^selected-item}="selectedItem" />
+<can-search-select {items}="items"
+                   filter-prop-name="companyName"
+                   {format}="@format"
+                   {^selected-item}="selectedItem" />
 ```
 
 Your view model can look like this:
@@ -30,6 +33,21 @@ const vm = new DefineMap({
   }
 })
 ```
+
+## API
+
+__Main props:__
+- `items`, a list of source items;
+- `selected-item`, the selected item, getter only;
+- `filter-prop-name`, string, a property name to search against;
+- `format`, a function that receives the selected item and returns a value for rendering in the input, default will use `filterPropName` or the item itself.
+
+__Customization options:__
+- `placeholder-search`, default `Enter to Search...`;
+- `placeholder-select`, default `Choose From the List`;
+- `btnClass`, default `caret` (for TwBootstrap caret).
+
+## Usage
 
 ### ES6 use
 
@@ -55,3 +73,7 @@ Load the `global` version of the plugin:
 ```html
 <script src='./node_modules/can-search-select/dist/global/can-search-select.js'></script>
 ```
+
+## Release Notes
+- `0.2.0`
+  - finalized main params and customization options

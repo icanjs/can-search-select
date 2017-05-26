@@ -1,6 +1,6 @@
 {
   "name": "can-search-select",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "My plugin description",
   "homepage": "",
   "repository": {
@@ -68,7 +68,7 @@
   },
   "dependencies": {
     "can-component": "^3.0.7",
-    "can-define": "^1.0.18",
+    "can-define": "^1.0.20",
     "can-stache": "^3.0.24",
     "can-view-autorender": "^3.0.4",
     "cssify": "^1.0.3",
@@ -77,6 +77,7 @@
     "steal-stache": "^3.0.5"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.7",
     "chai": "^3.5.0",
     "done-serve": "^1.0.0",
     "donejs-cli": "^1.0.0",

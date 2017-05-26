@@ -3,23 +3,23 @@ import DefineMap from 'can-define/map/'
 import './styles.less'
 import view from './template.stache'
 
-const placeholderSearch = 'Enter Company Name'
-const placeholderSelect = 'Choose From the List'
-
 export const ViewModel = DefineMap.extend({
-  // Options:
-  placeholder: {
-    value: placeholderSearch
-  },
-  filterPropName: {
-    type: 'string',
-    value: 'companyName'
-  },
+  // Params and options:
+  filterPropName: 'string',
   format (item) {
-    return item[this.filterPropName]
+    return this.filterPropName && item[this.filterPropName] || item;
+  },
+  placeholderSearch: {
+    value: 'Enter to Search...'
+  },
+  placeholderSelect:  {
+    value: 'Choose From the List'
+  },
+  btnClass: {
+    value: 'caret'
   },
 
-  // Props:
+  // Main props:
   selectedItem: {
     type: '*'
   },
@@ -32,34 +32,39 @@ export const ViewModel = DefineMap.extend({
     type: 'string'
   },
   isOpened: 'boolean',
-  filter: {
+  searchString: {
     type: 'string'
   },
   itemsFiltered: {
     get () {
-      return this.filter
-        ? this.items && this.items.filter(makeFilter(this.filter, this.filterPropName))
+      return this.searchString
+        ? this.items && this.items.filter(makeFilter(this.searchString, this.filterPropName))
         : this.items
     }
   },
+  placeholder: {
+    get (val) {
+      return val || this.placeholderSearch;
+    }
+  },
   open () {
-    if (!this.filter && this.isOpened) {
+    if (!this.searchString && this.isOpened) {
       this.isOpened = false
-      this.placeholder = placeholderSearch
+      this.placeholder = this.placeholderSearch
       return
     }
     this.val = ''
-    this.filter = ''
+    this.searchString = ''
     this.isOpened = true
-    this.placeholder = placeholderSelect
+    this.placeholder = this.placeholderSelect
   },
   onKeyUp (val) {
     this.val = val
-    this.filter = val
+    this.searchString = val
     this.isOpened = true
   },
   onFocus () {
-    this.placeholder = placeholderSearch
+    this.placeholder = this.placeholderSearch
   },
   onEnter () {
     if (this.itemsFiltered.length) {
@@ -75,8 +80,9 @@ export const ViewModel = DefineMap.extend({
 
 function makeFilter (needle, propName) {
   return function (item) {
-    console.log(`- filter: ${needle}, ${propName} => ${item[propName]}`, item)
-    return item[propName].toLowerCase().search(needle.toLowerCase()) !== -1
+    // console.log(`- filter: ${needle}, ${propName} => ${item[propName]}`, item)
+    const stack = propName ? item[propName] : item;
+    return stack.toLowerCase().search(needle.toLowerCase()) !== -1;
   }
 }
 
