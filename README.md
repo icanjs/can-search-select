@@ -38,7 +38,7 @@ const vm = new DefineMap({
 
 __Main props:__
 - `items`, a list of source items;
-- `selected-item`, the selected item, getter only;
+- `selected-item`, the selected item, can also be used for preselection;
 - `filter-prop-name`, string, a property name to search against;
 - `format`, a function that receives the selected item and returns a value for rendering in the input, default will use `filterPropName` or the item itself.
 
@@ -75,5 +75,8 @@ Load the `global` version of the plugin:
 ```
 
 ## Release Notes
-- `0.2.0`
-  - finalized main params and customization options
+- `0.2.1`:
+  - styled dropdown list;
+  - use `selectedItem` for preselection.
+- `0.2.0`:
+  - finalized main params and customization options.
