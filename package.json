@@ -70,21 +70,21 @@
     "can-component": "^3.0.7",
     "can-define": "^1.0.20",
     "can-stache": "^3.0.24",
-    "can-view-autorender": "^3.0.4",
-    "cssify": "^1.0.3",
-    "standard": "^10.0.2",
-    "steal-less": "^1.2.0",
-    "steal-stache": "^3.0.5"
+    "can-view-autorender": "^3.0.4"
   },
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "chai": "^3.5.0",
+    "cssify": "^1.0.3",
     "done-serve": "^1.0.0",
     "donejs-cli": "^1.0.0",
     "generator-donejs": "^1.0.0",
     "mocha": "^3.3.0",
+    "standard": "^10.0.2",
     "steal": "^1.5.1",
+    "steal-less": "^1.2.0",
     "steal-mocha": "^1.0.0",
+    "steal-stache": "^3.0.7",
     "steal-tools": "^1.3.3",
     "testee": "^0.4.1"
   },
