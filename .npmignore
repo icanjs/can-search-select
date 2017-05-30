@@ -1,1 +1,10 @@
 !dist/
+
+.donejs/
+.idea/
+.yo-rc.json
+.editorconfig
+.travis.yml
+build.js
+yarn.lock
+node_modules/
