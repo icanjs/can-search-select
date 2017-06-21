@@ -5,8 +5,11 @@
 <script type="text/stache" id="demo-html">
   <can-import from="bootstrap/dist/css/bootstrap.css" />
   <can-import from="~/index" />
-  <can-search-select {items}="items" {format}="@format"
-                     btn-class1="icon icon-chevron rotate-90" filter-prop-name="companyName"/>
+  <can-search-select {items}="items"
+                     {format}="@format"
+                     {format-input}="@formatInput"
+                     btn-class1="icon icon-chevron rotate-90"
+                     filter-prop-name="companyName"/>
 </script>
 
 <script src="node_modules/steal/steal.js"
@@ -18,7 +21,10 @@
 
   const vm = new DefineMap({
     format (item) {
-      return item.companyName + ', ' + item.issuanceName + ', price: ' + item.price;
+      return `<span style="color:red">${item.companyName}</span> &nbsp; <span style="color:blue">${item.issuanceName}</span> price: ${item.price}`;
+    },
+    formatInput (item) {
+      return `${item.companyName}, ${item.issuanceName}, price: ${item.price}`
     },
     items: [{
       companyName: 'Alphabet',

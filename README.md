@@ -16,6 +16,7 @@ Your page template can look like this:
 <can-search-select {items}="items"
                    filter-prop-name="companyName"
                    {format}="@format"
+                   {format-input}="@formatInput"
                    {^selected-item}="selectedItem" />
 ```
 
@@ -30,6 +31,9 @@ const vm = new DefineMap({
   }],
   format (item) {
     return item.companyName + ', ' + item.issuanceName + ', price: ' + item.price;
+  },
+  formatInput (item) {
+    return item.companyName;
   }
 })
 ```
@@ -40,7 +44,8 @@ __Main props:__
 - `items`, a list of source items;
 - `selected-item`, the selected item, can also be used for preselection;
 - `filter-prop-name`, string, a property name to search against;
-- `format`, a function that receives the selected item and returns a value for rendering in the input, default will use `filterPropName` or the item itself.
+- `format`, a function that receives the selected item and returns a value for rendering in the input, default will use `filterPropName` or the item itself;
+- `format-input`, a function to format the input field value.
 
 __Customization options:__
 - `placeholder-search`, default `Enter to Search...`;
@@ -75,6 +80,8 @@ Load the `global` version of the plugin:
 ```
 
 ## Release Notes
+- `0.2.2`:
+  - added `format-input` param.
 - `0.2.1`:
   - styled dropdown list;
   - use `selectedItem` for preselection.

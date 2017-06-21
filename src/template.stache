@@ -14,7 +14,7 @@
 {{#if isOpened}}
   <ul class="dropdown-list">
     {{#each itemsFiltered as item}}
-      <li ($click)="select(item)">{{format(item)}}</li>
+      <li ($click)="select(item)">{{{format(item)}}}</li>
     {{else}}
       <li>No records found</li>
     {{/each}}

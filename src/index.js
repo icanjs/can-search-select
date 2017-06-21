@@ -9,6 +9,9 @@ export const ViewModel = DefineMap.extend({
   format (item) {
     return (this.filterPropName && item[this.filterPropName]) || item
   },
+  formatInput (item) {
+    return this.format(item)
+  },
   placeholderSearch: {
     value: 'Enter to Search...'
   },
@@ -32,7 +35,7 @@ export const ViewModel = DefineMap.extend({
     type: 'string',
     get (val) {
       if (!val && this.selectedItem) {
-        return this.format(this.selectedItem)
+        return this.formatInput(this.selectedItem)
       }
       return val
     }
@@ -79,7 +82,7 @@ export const ViewModel = DefineMap.extend({
   },
   select (item) {
     this.selectedItem = item
-    this.val = this.format(item)
+    this.val = this.formatInput(item)
     this.isOpened = false
   }
 })
