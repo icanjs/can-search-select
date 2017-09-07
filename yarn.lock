@@ -628,7 +628,7 @@ can-cid@^1.0.0, can-cid@^1.0.3:
   dependencies:
     can-namespace "1.0.0"
 
-can-component@^3.3.4:
+can-component@^3.0.7:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/can-component/-/can-component-3.3.4.tgz#53bbb82297e96184a82f3322560b165abc4aa27d"
   dependencies:
@@ -684,7 +684,7 @@ can-control@^3.2.0:
     can-types "^1.1.0"
     can-util "^3.9.0"
 
-can-define@^1.4.4:
+can-define@^1.0.20:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/can-define/-/can-define-1.4.4.tgz#4c63f34aabf22a3c035f1faaeac40f0b41c71a16"
   dependencies:
@@ -851,7 +851,7 @@ can-stache-key@0.1.0:
     can-symbol "^1.0.0-pre.0"
     can-util "^3.9.0-pre.4"
 
-can-stache@^3.1.0, can-stache@^3.4.0, can-stache@^3.7.0:
+can-stache@^3.0.24, can-stache@^3.1.0, can-stache@^3.4.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/can-stache/-/can-stache-3.7.0.tgz#21a3924ca912385f4fa15e910e6736f84eb4c0bd"
   dependencies:
@@ -904,7 +904,7 @@ can-util@^3.10.6, can-util@^3.8.4, can-util@^3.9.0, can-util@^3.9.0-pre.4, can-u
     can-symbol "^1.0.0"
     can-types "^1.1.0"
 
-can-view-autorender@^3.1.1:
+can-view-autorender@^3.0.4:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/can-view-autorender/-/can-view-autorender-3.1.1.tgz#41e19e860c82b40f7a57c3bfc69a5c4f3be3748c"
   dependencies:
