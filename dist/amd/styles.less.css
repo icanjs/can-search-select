@@ -1,0 +1,33 @@
+/*can-search-select@0.2.5#styles.less!steal-less@1.2.0#less*/
+can-search-select,
+can-select {
+  display: block;
+  position: relative;
+}
+can-search-select .dropdown-list,
+can-select .dropdown-list {
+  position: absolute;
+  z-index: 999;
+  max-height: 160px;
+  width: 100%;
+  padding-left: 0px;
+  overflow: auto;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-top: none;
+}
+can-search-select .dropdown-list li,
+can-select .dropdown-list li {
+  list-style-type: none;
+  padding: 3px 15px;
+  cursor: pointer;
+}
+can-search-select .dropdown-list li:hover,
+can-select .dropdown-list li:hover {
+  background-color: lightblue;
+}
+can-select .input-group input.form-control {
+  color: transparent;
+  text-shadow: 0 0 0 black;
+  cursor: pointer;
+}
