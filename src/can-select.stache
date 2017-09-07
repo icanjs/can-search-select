@@ -1,8 +1,6 @@
 <div class="input-group">
   <input type="text" class="form-control" placeholder="{{placeholder}}"
-         ($focus)="onFocus()"
-         ($keyup)="onKeyUp(%element.value)"
-         ($enter)="onEnter(%element.value)"
+         ($focus)="open()"
          {$value}="val" />
   <span class="input-group-btn">
     <button class="btn btn-default" type="button" ($click)="open()">
@@ -13,10 +11,8 @@
 
 {{#if isOpened}}
   <ul class="dropdown-list">
-    {{#each itemsFiltered as item}}
+    {{#each items as item}}
       <li ($click)="select(item)">{{{format(item)}}}</li>
-    {{else}}
-      <li>No records found</li>
     {{/each}}
   </ul>
 {{/if}}

@@ -4,12 +4,18 @@
 
 <script type="text/stache" id="demo-html">
   <can-import from="bootstrap/dist/css/bootstrap.css" />
-  <can-import from="~/index" />
+  <can-import from="~/can-select" />
+  <can-import from="~/can-search-select" />
+  
   <can-search-select {items}="items"
                      {format}="@format"
                      {format-input}="@formatInput"
                      btn-class1="icon icon-chevron rotate-90"
                      filter-prop-name="companyName"/>
+   
+  <can-select {items}="items"
+              display-prop-name="companyName"
+              {^selected-item}="selectedItem"/>
 </script>
 
 <script src="node_modules/steal/steal.js"

@@ -1,4 +1,4 @@
-can-search-select {
+can-search-select, can-select {
   display: block;
   position: relative;
 
@@ -23,6 +23,16 @@ can-search-select {
       &:hover {
         background-color: lightblue;
       }
+    }
+  }
+}
+
+can-select {
+  .input-group {
+    input.form-control {
+      color: transparent;
+      text-shadow: 0 0 0 black;
+      cursor: pointer;
     }
   }
 }

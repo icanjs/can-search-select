@@ -1,7 +1,7 @@
 import Component from 'can-component'
 import DefineMap from 'can-define/map/'
 import './styles.less'
-import view from './template.stache'
+import view from './can-search-select.stache'
 
 export const ViewModel = DefineMap.extend({
   // Params and options:

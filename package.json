@@ -1,7 +1,7 @@
 {
   "name": "can-search-select",
   "version": "0.2.5",
-  "description": "My plugin description",
+  "description": "Dropdown select component with a search option",
   "homepage": "",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "preversion": "npm test && npm run build",
     "version": "git commit -am \"Update version number\" && git checkout -b release && git add -f dist/",
     "postpublish": "git push --tags && git checkout master && git branch -D release && git push",
-    "testee": "testee test.html --browsers firefox",
+    "testee": "testee test.html --browsers firefox --reporter Spec",
     "test": "npm run lint && npm run testee",
     "lint": "standard",
     "lint:fix": "standard --fix",
@@ -40,6 +40,9 @@
   "keywords": [
     "canjs",
     "component",
+    "dropdown",
+    "select",
+    "search select",
     "donejs-plugin"
   ],
   "standard": {
@@ -48,7 +51,7 @@
     ]
   },
   "steal": {
-    "main": "index",
+    "main": "can-search-select",
     "configDependencies": [
       "live-reload"
     ],

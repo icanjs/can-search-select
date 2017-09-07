@@ -38,7 +38,17 @@ const vm = new DefineMap({
 })
 ```
 
+There is also a simple dropdown select without a search:
+```js
+<can-import from="can-search-select/can-select" />
+<can-select {items}="items"
+            display-prop-name="companyName"
+            {^selected-item}="selectedItem" />
+```
+
 ## API
+
+### can-search-select
 
 __Main props:__
 - `items`, a list of source items;
@@ -51,6 +61,13 @@ __Customization options:__
 - `placeholder-search`, default `Enter to Search...`;
 - `placeholder-select`, default `Choose From the List`;
 - `btnClass`, default `caret` (for TwBootstrap caret).
+
+### can-select
+
+**Simple dropdown select:**
+- `items`, a list of source items;
+- `selected-item`, the selected item, can also be used for preselection;
+- `filter-prop-name`, string, a property name to use for displaying.
 
 ## Usage
 
@@ -80,6 +97,8 @@ Load the `global` version of the plugin:
 ```
 
 ## Release Notes
+- `0.3.0`:
+  - added a simple dropdown select (w/o search) `can-select` component.
 - `0.2.2`:
   - added `format-input` param.
 - `0.2.1`:
